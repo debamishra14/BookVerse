@@ -5,7 +5,6 @@ import "./BookList.css";
 
 const BookList = () => {
     const [books, setBooks] = useState([]);
-    // const BASE_URL = `http://localhost:${process.env.PORT}/api`;
 
     useEffect(() => {
         const fetchBooks = async () => {

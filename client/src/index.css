@@ -17,3 +17,27 @@ body {
 .content {
   background-color: #f4f1ee !important;
 }
+
+.hover-link {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-out;
+}
+
+.hover-link:hover::after {
+  width: 100%;
+}
+
+.content {
+  padding: 50px 30px;
+}

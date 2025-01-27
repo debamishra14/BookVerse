@@ -1,5 +1,9 @@
 import React from "react";
-import "./Footer.css"; // Import the CSS for the footer
+import { Link } from "react-router-dom";
+import "./Footer.css";
+import { ReactComponent as InstagramIcon } from "../../assets/images/instagram.svg";
+import { ReactComponent as FacebookIcon } from "../../assets/images/facebook.svg";
+import { ReactComponent as TwitterIcon } from "../../assets/images/twitter.svg";
 
 const Footer = () => {
     const shopNowLinks = [
@@ -26,7 +30,17 @@ const Footer = () => {
             <div className="footer-content row">
                 <div className="footer-info column">
                     <h1>Bookkit</h1>
-                    <div className="footer-social"></div>
+                    <div className="footer-social">
+                        <Link to="/" className="icon">
+                            <FacebookIcon />
+                        </Link>
+                        <Link to="/" className="icon">
+                            <TwitterIcon />
+                        </Link>
+                        <Link to="/" className="icon">
+                            <InstagramIcon />
+                        </Link>
+                    </div>
                 </div>
                 <div className="footer-links column">
                     <h3>Explore</h3>

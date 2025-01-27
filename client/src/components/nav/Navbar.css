@@ -1,6 +1,5 @@
 /* Navbar container */
 .navbar {
-    background-color: #c171301a;
     padding: 20px;
     color: #000;
     display: flex;
@@ -10,6 +9,9 @@
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(100px);
+    background-color: #fff0;
 }
 
 .navbar-container {
@@ -22,9 +24,13 @@
 .navbar-right-section {
     display: flex;
     align-items: center;
+    gap: 30px;
 }
 
-.navbar-left-section {}
+.navbar-left-section {
+    display: flex;
+    align-items: center;
+}
 
 .navbar-brand {
     color: #e67e22;
@@ -32,6 +38,7 @@
     font-weight: bold;
     text-decoration: none;
     letter-spacing: 1px;
+    margin-right: 50px;
 }
 
 .navbar-links {
@@ -44,35 +51,14 @@
     margin-left: 20px;
 }
 
-.navbar-links a,
-.navbar-links button {
+.navbar-links a {
     color: #000;
     text-decoration: none;
     font-size: 16px;
-    padding: 8px 16px;
-    border-radius: 4px;
+    font-weight: 600;
+    padding: 8px 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-/* Hover effect for links */
-.navbar-links a:hover,
-.navbar-links button:hover {
-    background-color: #e67e22;
-    color: #333;
-}
-
-/* Hamburger Menu */
-.navbar-hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.hamburger-icon {
-    width: 30px;
-    height: 4px;
-    margin: 6px 0;
-    transition: all 0.3s ease;
 }
 
 /* Responsive Navbar */
@@ -160,17 +146,13 @@
     align-items: center;
 }
 
-.search-button:hover {
-    background-color: #2980b9;
-}
 
 .search-button:focus {
     outline: none;
 }
 
 /* Hover Effect */
-.search-input:hover,
-.search-button:hover {
+.search-input:hover {
     background-color: #f1f1f1;
 }
 
@@ -182,8 +164,8 @@
 
 .profile-icon {
     transition: color 0.3s;
-    height: 26px;
-    width: 26px;
+    height: 30px;
+    width: 30px;
 }
 
 .profile-container:hover {
@@ -225,4 +207,30 @@
 .profile-container:hover .dropdown,
 .dropdown {
     display: block;
+}
+
+/* Cart Icon and Badge */
+.cart-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-icon {
+    color: white;
+    transition: color 0.3s;
+    height: 30px;
+    width: 30px;
+}
+
+/* Badge Styling */
+.cart-badge {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    background-color: #e67e22;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 12px;
+    font-weight: bold;
 }

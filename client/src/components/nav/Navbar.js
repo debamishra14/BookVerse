@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import "./Navbar.css";
 import { ReactComponent as ProfileIcon } from "../../assets/images/profile.svg";
 import { ReactComponent as SearchIcon } from "../../assets/images/search.svg";
+import { ReactComponent as CartIcon } from "../../assets/images/cart.svg";
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -12,6 +13,7 @@ const Navbar = () => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [cartItems, setCartItems] = useState(0);
     const dropdownRef = useRef(null);
     const profileIconRef = useRef(null);
 
@@ -53,6 +55,20 @@ const Navbar = () => {
                     <Link to="/" className="navbar-brand">
                         Bookkit
                     </Link>
+                    <ul className="navbar-links">
+                        <li>
+                            <Link to="/books" className="hover-link">
+                                Books
+                            </Link>
+                        </li>
+                        {user?.role === "seller" && (
+                            <li>
+                                <Link to="/add-book" className="hover-link">
+                                    Add Book
+                                </Link>
+                            </li>
+                        )}
+                    </ul>
                 </div>
 
                 {/* Hamburger Icon */}
@@ -75,22 +91,6 @@ const Navbar = () => {
                             </div>
                         </button>
                     </form>
-                    {/* Navigation Links */}
-                    <ul className="navbar-links">
-                        <li>
-                            <Link to="/books">Books</Link>
-                        </li>
-                        {user?.role === "seller" && (
-                            <li>
-                                <Link to="/add-book">Add Book</Link>
-                            </li>
-                        )}
-                        {user?.role === "buyer" && (
-                            <li>
-                                <Link to="/cart">Cart</Link>
-                            </li>
-                        )}
-                    </ul>
                     <div
                         className="profile-container"
                         onClick={toggleDropdown}
@@ -122,6 +122,15 @@ const Navbar = () => {
                                 )}
                             </div>
                         )}
+                    </div>
+                    <div className="cart-container">
+                        <div className="cart-icon">
+                            <CartIcon />
+                        </div>
+                        {/* {cartItems > 0 && (
+                            <span className="cart-badge">{cartItems}</span>
+                        )} */}
+                        <span className="cart-badge">{cartItems}</span>
                     </div>
                 </div>
             </div>
