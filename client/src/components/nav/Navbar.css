@@ -1,7 +1,7 @@
 /* Navbar container */
 .navbar {
     background-color: #c171301a;
-    padding: 10px 20px;
+    padding: 20px;
     color: #000;
     display: flex;
     justify-content: space-between;
@@ -19,8 +19,15 @@
     width: 100%;
 }
 
+.navbar-right-section {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left-section {}
+
 .navbar-brand {
-    color: #f0a500;
+    color: #e67e22;
     font-size: 24px;
     font-weight: bold;
     text-decoration: none;
@@ -51,18 +58,8 @@
 /* Hover effect for links */
 .navbar-links a:hover,
 .navbar-links button:hover {
-    background-color: #f0a500;
+    background-color: #e67e22;
     color: #333;
-}
-
-/* Specific styles for the logout button */
-.navbar-links button {
-    background-color: #e74c3c;
-    border: none;
-}
-
-.navbar-links button:hover {
-    background-color: #c0392b;
 }
 
 /* Hamburger Menu */
@@ -119,4 +116,113 @@
         width: 100%;
         text-align: center;
     }
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 5px 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-size: 14px;
+    width: 250px;
+    transition: width 0.3s ease;
+}
+
+.search-input:focus {
+    width: 300px;
+}
+
+.search-button {
+    background-color: #e67e22;
+    border: none;
+    padding: 7px;
+    margin-left: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.search-icon {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.search-button:hover {
+    background-color: #2980b9;
+}
+
+.search-button:focus {
+    outline: none;
+}
+
+/* Hover Effect */
+.search-input:hover,
+.search-button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Profile Icon and Dropdown */
+.profile-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-icon {
+    transition: color 0.3s;
+    height: 26px;
+    width: 26px;
+}
+
+.profile-container:hover {
+    color: #3498db;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    width: 150px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Hide the dropdown when it's not open */
+.dropdown {
+    display: none;
+}
+
+.profile-container:hover .dropdown,
+.dropdown {
+    display: block;
 }

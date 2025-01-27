@@ -1,66 +1,129 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import "./Navbar.css";
-import { ReactComponent as HamburgerIcon } from "../../assets/images/hamburger-menu.svg";
+import { ReactComponent as ProfileIcon } from "../../assets/images/profile.svg";
+import { ReactComponent as SearchIcon } from "../../assets/images/search.svg";
 
 const Navbar = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
     const { user, logout } = useContext(AuthContext);
+    const [searchTerm, setSearchTerm] = useState("");
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const dropdownRef = useRef(null);
+    const profileIconRef = useRef(null);
+
+    useEffect(() => {
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+
+    const handleClickOutside = (event) => {
+        if (
+            dropdownRef.current &&
+            !dropdownRef.current.contains(event.target) &&
+            profileIconRef.current &&
+            !profileIconRef.current.contains(event.target)
+        ) {
+            setIsDropdownOpen(false);
+        }
+    };
+
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        console.log("Searching for:", searchTerm);
+        // You can add the search functionality here (e.g., API call or filter the books)
+    };
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
     };
 
     return (
         <nav className="navbar">
             <div className="navbar-container">
-                <Link to="/" className="navbar-brand">
-                    Bookkit
-                </Link>
-
-                {/* Hamburger Icon */}
-                <div className="navbar-hamburger" onClick={toggleMenu}>
-                    <HamburgerIcon
-                        className="hamburger-icon"
-                        width="100"
-                        height="100"
-                    />
+                <div className="navbar-left-section">
+                    <Link to="/" className="navbar-brand">
+                        Bookkit
+                    </Link>
                 </div>
 
-                {/* Navigation Links */}
-                <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
-                    <li>
-                        <Link to="/books">Books</Link>
-                    </li>
-                    {user ? (
-                        <>
-                            {user.role === "seller" && (
-                                <li>
-                                    <Link to="/add-book">Add Book</Link>
-                                </li>
-                            )}
-                            {user.role === "buyer" && (
-                                <li>
-                                    <Link to="/cart">Cart</Link>
-                                </li>
-                            )}
+                {/* Hamburger Icon */}
+                {/* <div className="navbar-hamburger" onClick={toggleMenu}>
+                    <HamburgerIcon className="hamburger-icon" />
+                </div> */}
+
+                <div className="navbar-right-section">
+                    <form className="searchbar" onSubmit={handleSearchSubmit}>
+                        <input
+                            type="text"
+                            placeholder="Search books..."
+                            value={searchTerm}
+                            onChange={handleSearchChange}
+                            className="search-input"
+                        />
+                        <button type="submit" className="search-button">
+                            <div className="search-icon">
+                                <SearchIcon />
+                            </div>
+                        </button>
+                    </form>
+                    {/* Navigation Links */}
+                    <ul className="navbar-links">
+                        <li>
+                            <Link to="/books">Books</Link>
+                        </li>
+                        {user?.role === "seller" && (
                             <li>
-                                <button onClick={logout}>Logout</button>
+                                <Link to="/add-book">Add Book</Link>
                             </li>
-                        </>
-                    ) : (
-                        <>
+                        )}
+                        {user?.role === "buyer" && (
                             <li>
-                                <Link to="/login">Login</Link>
+                                <Link to="/cart">Cart</Link>
                             </li>
-                            <li>
-                                <Link to="/signup">Sign Up</Link>
-                            </li>
-                        </>
-                    )}
-                </ul>
+                        )}
+                    </ul>
+                    <div
+                        className="profile-container"
+                        onClick={toggleDropdown}
+                        ref={profileIconRef}
+                    >
+                        <div className="profile-icon">
+                            <ProfileIcon />
+                        </div>
+                        {isDropdownOpen && (
+                            <div className="dropdown" ref={dropdownRef}>
+                                {isLoggedIn ? (
+                                    <>
+                                        <div className="dropdown-item">
+                                            Profile
+                                        </div>
+                                        <div
+                                            className="dropdown-item"
+                                            onClick={logout}
+                                        >
+                                            Sign out
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="dropdown-item">
+                                            Sign Up / Sign In
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         </nav>
     );
