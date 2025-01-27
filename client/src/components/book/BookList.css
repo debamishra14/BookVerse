@@ -1,6 +1,12 @@
 .booklist-container {}
 
-.booklist-title {}
+.title-container {
+    margin-bottom: 20px;
+}
+
+.booklist-title {
+    text-align: center;
+}
 
 .booklist-list {
     display: flex;
@@ -9,4 +15,34 @@
     gap: 10px;
 }
 
-.booklist-item {}
+.deal-section ul.booklist-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+
+}
+
+ul::-webkit-scrollbar {
+    display: none;
+}
+
+.deal-section .time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.deal-section .time .time-time {
+    font-weight: 500;
+}
+
+.deal-section .time .time-text {
+    color: #c17130;
+    font-weight: 600;
+}
+
+.allbook-section {
+    margin-top: 50px;
+}

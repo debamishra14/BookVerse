@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1001,
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "description": "A vision of a futuristic society based on conformity and control.",
+        "price": {
+            "mr_price": 13.75,
+            "final_price": 11.49
+        },
+        "stock": 60
+    },
+    {
+        "id": 1002,
+        "title": "War and Peace",
+        "author": "Leo Tolstoy",
+        "description": "An epic tale of Russian society during the Napoleonic wars.",
+        "price": {
+            "mr_price": 22.99,
+            "final_price": 19.49
+        },
+        "stock": 25
+    },
+    {
+        "id": 1003,
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "description": "A young hobbit’s adventure to recover treasure guarded by a dragon.",
+        "price": {
+            "mr_price": 15.09,
+            "final_price": 12.59
+        },
+        "stock": 150
+    },
+    {
+        "id": 1004,
+        "title": "Fahrenheit 451",
+        "author": "Ray Bradbury",
+        "description": "A dystopian novel where books are banned and burned.",
+        "price": {
+            "mr_price": 17.95,
+            "final_price": 12.99
+        },
+        "stock": 90
+    },
+    {
+        "id": 1005,
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "description": "A prequel to The Lord of the Rings, telling the story of Bilbo Baggins' adventures.",
+        "price": {
+            "mr_price": 12.99,
+            "final_price": 9.99
+        },
+        "stock": 180
+    },
+    {
+        "id": 1008,
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "description": "A dystopian novel that explores a society driven by consumerism and the loss of individuality.",
+        "price": {
+            "mr_price": 10.49,
+            "final_price": 8.49
+        },
+        "stock": 110
+    },
+    {
+        "id": 1009,
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "description": "A philosophical novel about pursuing your dreams and discovering your personal legend.",
+        "price": {
+            "mr_price": 9.79,
+            "final_price": 7.49
+        },
+        "stock": 140
+    },
+    {
+        "id": 1010,
+        "title": "Animal Farm",
+        "author": "George Orwell",
+        "description": "A political allegory about power and corruption through the lens of a farm rebellion.",
+        "price": {
+            "mr_price": 6.99,
+            "final_price": 5.49
+        },
+        "stock": 160
+    }
+]

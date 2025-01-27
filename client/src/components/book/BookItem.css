@@ -1,5 +1,5 @@
 .bookitem-container {
-    width: 280px;
+    width: 260px;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -49,9 +49,18 @@
 
 .price {
     font-size: 16px;
-    color: #e67e22;
-    color: #000;
     margin-bottom: 10px;
+}
+
+.mr-price {
+    color: gray;
+    text-decoration: line-through;
+    margin-right: 5px;
+}
+
+.final-price {
+    color: #000;
+    font-weight: 500;
 }
 
 .stock {

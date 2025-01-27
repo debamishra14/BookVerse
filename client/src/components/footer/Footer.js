@@ -31,15 +31,30 @@ const Footer = () => {
                 <div className="footer-info column">
                     <h1>Bookkit</h1>
                     <div className="footer-social">
-                        <Link to="/" className="icon">
+                        <a
+                            href="https://www.facebook.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="icon"
+                        >
                             <FacebookIcon />
-                        </Link>
-                        <Link to="/" className="icon">
+                        </a>
+                        <a
+                            href="https://x.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="icon"
+                        >
                             <TwitterIcon />
-                        </Link>
-                        <Link to="/" className="icon">
+                        </a>
+                        <a
+                            href="https://www.instagram.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="icon"
+                        >
                             <InstagramIcon />
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 <div className="footer-links column">

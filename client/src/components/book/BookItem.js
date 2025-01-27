@@ -3,7 +3,10 @@ import "./BookItem.css";
 
 const BookItem = (props) => {
     const { title, author, price, stock } = props.data;
+    const { type } = props;
     const isStockAvailable = stock > 0;
+
+    // console.log(props);
 
     return (
         <div className="bookitem-container">
@@ -12,7 +15,25 @@ const BookItem = (props) => {
                 <div className="text-section">
                     <p className="title">{title}</p>
                     <p className="author">by {author}</p>
-                    <p className="price">Rs. {price}</p>
+                    <p className="price">
+                        {type === "deals" && (
+                            <>
+                                <span className="mr-price">
+                                    Rs. {price.mr_price}
+                                </span>
+                                <span className="final-price">
+                                    {price.final_price}
+                                </span>
+                            </>
+                        )}
+                        {!type && (
+                            <>
+                                <span className="final-price">
+                                    Rs. {price.mr_price}
+                                </span>
+                            </>
+                        )}
+                    </p>
                     <p
                         className={`stock ${
                             isStockAvailable ? "in-stock" : "outof-stock"

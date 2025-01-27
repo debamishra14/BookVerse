@@ -4,7 +4,10 @@
         "title": "The Great Gatsby",
         "author": "F. Scott Fitzgerald",
         "description": "A story about the American dream in the Jazz Age.",
-        "price": 10.49,
+        "price": {
+            "mr_price": 10.49,
+            "final_price": 0
+        },
         "stock": 100
     },
     {
@@ -12,7 +15,10 @@
         "title": "1984",
         "author": "George Orwell",
         "description": "A dystopian novel about totalitarianism and surveillance.",
-        "price": 12.99,
+        "price": {
+            "mr_price": 12.99,
+            "final_price": 0
+        },
         "stock": 50
     },
     {
@@ -20,7 +26,10 @@
         "title": "To Kill a Mockingbird",
         "author": "Harper Lee",
         "description": "A novel about racial injustice in the Deep South.",
-        "price": 8.99,
+        "price": {
+            "mr_price": 8.99,
+            "final_price": 0
+        },
         "stock": 75
     },
     {
@@ -28,7 +37,10 @@
         "title": "Moby-Noby",
         "author": "Herman Melville",
         "description": "The story of Captain Ahab's obsessive quest to kill a giant whale.",
-        "price": 14.99,
+        "price": {
+            "mr_price": 14.99,
+            "final_price": 0
+        },
         "stock": 30
     },
     {
@@ -36,7 +48,10 @@
         "title": "The Silent Patient",
         "author": "Alex Michaelides",
         "description": "A psychological thriller about a woman who shot her husband and then stopped speaking. A psychotherapist is determined to uncover her secrets.",
-        "price": 5.99,
+        "price": {
+            "mr_price": 5.99,
+            "final_price": 0
+        },
         "stock": 0
     }
 ]

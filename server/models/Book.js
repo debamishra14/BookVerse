@@ -12,7 +12,18 @@ const bookSchema = new mongoose.Schema({
     title: { type: String, required: true },
     author: { type: String, required: true },
     description: { type: String, required: true },
-    price: { type: Number, required: true },
+    price: {
+        mr_price: {
+            type: Number,
+            required: true,
+            set: (value) => parseFloat(value.toFixed(2)),
+        },
+        final_price: {
+            type: Number,
+            required: true,
+            set: (value) => parseFloat(value.toFixed(2)),
+        },
+    },
     stock: { type: Number, required: true },
 });
 
