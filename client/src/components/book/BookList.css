@@ -1,0 +1,12 @@
+.booklist-container {}
+
+.booklist-title {}
+
+.booklist-list {
+    display: flex;
+    flex: 1 1 calc(25%-5px);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.booklist-item {}

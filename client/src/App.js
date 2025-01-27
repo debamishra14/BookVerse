@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
+import Navbar from "./components/nav/Navbar";
+import Footer from "./components/footer/Footer";
 import BookList from "./components/book/BookList";
 import AddBook from "./components/book/AddBook";
 // import Cart from "./components/cart/Cart";
@@ -12,21 +14,37 @@ const App = () => {
     return (
         <AuthProvider>
             <Router>
-                <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/" element={<BookList />} />
-                    <Route
-                        path="/add"
-                        element={
-                            <ProtectedRoute
-                                element={<AddBook />}
-                                role="Seller"
-                            />
-                        }
-                    />
-                    {/* <Route path="/cart" element={<Cart />} /> */}
-                    {/* <Route path="/checkout" element={<Checkout />} /> */}
-                </Routes>
+                <Navbar />
+                <div className="content">
+                    <Routes>
+                        {/* Public Routes */}
+                        <Route path="/" element={<BookList />} />
+                        <Route path="/books" element={<BookList />} />
+                        <Route path="/login" element={<Login />} />
+                        {/* <Route path="/signup" element={<SignUp />} /> */}
+
+                        {/* Protected Routes */}
+                        <Route
+                            path="/add-book"
+                            element={
+                                <ProtectedRoute
+                                    element={<AddBook />}
+                                    role="seller"
+                                />
+                            }
+                        />
+                        {/* <Route
+                            path="/cart"
+                            element={
+                                <ProtectedRoute
+                                    element={<Cart />}
+                                    role="buyer"
+                                />
+                            }
+                        /> */}
+                    </Routes>
+                </div>
+                <Footer />
             </Router>
         </AuthProvider>
     );

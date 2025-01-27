@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import BookItem from "./BookItem";
+import "./BookList.css";
 
 const BookList = () => {
     const [books, setBooks] = useState([]);
@@ -17,15 +19,12 @@ const BookList = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Books</h2>
-            <ul>
+        <div className="booklist-container">
+            <h2 className="booklist-title">Books</h2>
+            <ul className="booklist-list">
                 {books.map((book) => (
-                    <li key={book.id}>
-                        <h3>{book.title}</h3>
-                        <p>{book.author}</p>
-                        <p>{book.price}</p>
-                        <p>{book.stock} in stock</p>
+                    <li key={book.id} className="booklist-item">
+                        <BookItem data={book} />
                     </li>
                 ))}
             </ul>

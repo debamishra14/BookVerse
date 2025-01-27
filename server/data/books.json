@@ -4,7 +4,7 @@
         "title": "The Great Gatsby",
         "author": "F. Scott Fitzgerald",
         "description": "A story about the American dream in the Jazz Age.",
-        "price": 10.99,
+        "price": 10.49,
         "stock": 100
     },
     {
@@ -30,5 +30,13 @@
         "description": "The story of Captain Ahab's obsessive quest to kill a giant whale.",
         "price": 14.99,
         "stock": 30
+    },
+    {
+        "id": 5000,
+        "title": "The Silent Patient",
+        "author": "Alex Michaelides",
+        "description": "A psychological thriller about a woman who shot her husband and then stopped speaking. A psychotherapist is determined to uncover her secrets.",
+        "price": 5.99,
+        "stock": 0
     }
 ]
