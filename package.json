@@ -2,10 +2,6 @@
     "name": "bookverse",
     "version": "1.0.0",
     "private": true,
-    "workspaces": [
-        "client",
-        "server"
-    ],
     "scripts": {
         "client": "npm start --prefix client",
         "server": "npm start --prefix server",
