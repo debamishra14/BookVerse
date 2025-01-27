@@ -1,2 +1,2 @@
 # BookVerse
-A book store application build using MERN stack
+A book store application using MERN stack
