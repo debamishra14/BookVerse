@@ -75,8 +75,10 @@ button.submit-btn {
 
 .modal-toggle-link {
     color: #e67e22;
+    font-weight: 500;
 }
 
-.modal-toggle-link:hover {
-    text-decoration: underline;
+.hover-link::after {
+    background-color: #e67e22;
+    height: 2px;
 }

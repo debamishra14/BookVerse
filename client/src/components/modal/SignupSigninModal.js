@@ -28,7 +28,7 @@ const SignupSigninModal = ({ isOpen, closeModal }) => {
                 <p>
                     Already have an account?{" "}
                     <a
-                        className="modal-toggle-link"
+                        className="modal-toggle-link hover-link"
                         onClick={() => toggleModalType("signin")}
                     >
                         Sign In
@@ -40,7 +40,7 @@ const SignupSigninModal = ({ isOpen, closeModal }) => {
                 <p>
                     Don't have an account?{" "}
                     <a
-                        className="modal-toggle-link"
+                        className="modal-toggle-link hover-link"
                         onClick={() => toggleModalType("signup")}
                     >
                         Sign Up
