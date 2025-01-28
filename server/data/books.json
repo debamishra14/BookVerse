@@ -53,5 +53,27 @@
             "final_price": 0
         },
         "stock": 0
+    },
+    {
+        "id": 6000,
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "description": "A classic romance novel exploring class, marriage, and societal expectations.",
+        "price": {
+            "mr_price": 8.49,
+            "final_price": 0
+        },
+        "stock": 120
+    },
+    {
+        "id": 7000,
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "description": "A coming-of-age story about the struggles of adolescence.",
+        "price": {
+            "mr_price": 5.99,
+            "final_price": 0
+        },
+        "stock": 90
     }
 ]

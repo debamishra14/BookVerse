@@ -7,7 +7,6 @@ import BookList from "./components/book/BookList";
 import AddBook from "./components/book/AddBook";
 // import Cart from "./components/cart/Cart";
 // import Checkout from "./components/checkout/Checkout";
-import Login from "./components/login/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
@@ -20,8 +19,6 @@ const App = () => {
                         {/* Public Routes */}
                         <Route path="/" element={<BookList />} />
                         <Route path="/books" element={<BookList />} />
-                        <Route path="/login" element={<Login />} />
-                        {/* <Route path="/signup" element={<SignUp />} /> */}
 
                         {/* Protected Routes */}
                         <Route

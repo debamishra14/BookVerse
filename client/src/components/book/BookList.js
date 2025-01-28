@@ -8,25 +8,7 @@ const BookList = () => {
     const [dealBooks, setDealBooks] = useState([]);
     const [timeRemaining, setTimeRemaining] = useState(null);
 
-    useEffect(() => {
-        const fetchBooks = async () => {
-            const res = await axios.get(
-                `http://localhost:5091/api/books/getbooks`
-            );
-            const dealBookList = res.data?.filter((book) => {
-                return book?.price?.final_price > 0;
-            });
-            const allBookList = res.data?.filter((book) => {
-                return book?.price?.final_price === 0;
-            });
-            setBooks(allBookList);
-            setDealBooks(dealBookList);
-            console.log(res);
-        };
-        fetchBooks();
-    }, []);
-
-    function getTimeRemaining() {
+    const getTimeRemaining = () => {
         const currentTime = new Date();
         const midnight = new Date();
         midnight.setHours(24, 0, 0, 0);
@@ -48,21 +30,49 @@ const BookList = () => {
             2,
             "0"
         )}:${String(seconds).padStart(2, "0")}`;
-    }
+    };
 
-    setInterval(() => {
-        setTimeRemaining(getTimeRemaining());
-    }, 1000);
+    useEffect(() => {
+        const fetchBooks = async () => {
+            const res = await axios.get(
+                `http://localhost:5091/api/books/getbooks`
+            );
+            if (res.data) {
+                const dealBookList = [];
+                const allBookList = [];
+
+                res.data.forEach((book) => {
+                    if (book?.price?.final_price > 0) {
+                        dealBookList.push(book);
+                    } else {
+                        allBookList.push(book);
+                    }
+                });
+
+                setBooks(allBookList);
+                setDealBooks(dealBookList);
+            }
+        };
+        fetchBooks();
+        const intervalId = setInterval(() => {
+            setTimeRemaining(getTimeRemaining());
+        }, 1000);
+
+        // Cleanup interval on unmount
+        return () => clearInterval(intervalId);
+    }, []);
 
     return (
         <div className="booklist-container">
             <div className="deal-section">
                 <div className="title-container">
                     <h2 className="booklist-title">Deals of the Day</h2>
-                    <p className="time">
-                        <span className="time-text">Time Remaining:</span>
-                        <span className="time-time">{timeRemaining}</span>
-                    </p>
+                    {timeRemaining && (
+                        <p className="time">
+                            <span className="time-text">Time Remaining:</span>
+                            <span className="time-time">{timeRemaining}</span>
+                        </p>
+                    )}
                 </div>
                 <ul className="booklist-list">
                     {dealBooks.map((book) => (

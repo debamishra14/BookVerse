@@ -6,14 +6,16 @@ import "./Navbar.css";
 import { ReactComponent as ProfileIcon } from "../../assets/images/profile.svg";
 import { ReactComponent as SearchIcon } from "../../assets/images/search.svg";
 import { ReactComponent as CartIcon } from "../../assets/images/cart.svg";
+import SignupSigninModal from "../modal/SignupSigninModal";
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const [searchTerm, setSearchTerm] = useState("");
-
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [cartItems, setCartItems] = useState(0);
+    const [cartItems, setCartItems] = useState(2);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const dropdownRef = useRef(null);
     const profileIconRef = useRef(null);
 
@@ -47,6 +49,12 @@ const Navbar = () => {
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
+    const openSignupSigninModal = () => {
+        setIsModalOpen(true);
+    };
+    const closeSignupSigninModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <nav className="navbar">
@@ -70,11 +78,6 @@ const Navbar = () => {
                         )}
                     </ul>
                 </div>
-
-                {/* Hamburger Icon */}
-                {/* <div className="navbar-hamburger" onClick={toggleMenu}>
-                    <HamburgerIcon className="hamburger-icon" />
-                </div> */}
 
                 <div className="navbar-right-section">
                     <form className="searchbar" onSubmit={handleSearchSubmit}>
@@ -114,11 +117,12 @@ const Navbar = () => {
                                         </div>
                                     </>
                                 ) : (
-                                    <>
-                                        <div className="dropdown-item">
-                                            Sign Up / Sign In
-                                        </div>
-                                    </>
+                                    <a
+                                        className="dropdown-item"
+                                        onClick={openSignupSigninModal}
+                                    >
+                                        Sign Up / Sign In
+                                    </a>
                                 )}
                             </div>
                         )}
@@ -127,13 +131,14 @@ const Navbar = () => {
                         <div className="cart-icon">
                             <CartIcon />
                         </div>
-                        {/* {cartItems > 0 && (
-                            <span className="cart-badge">{cartItems}</span>
-                        )} */}
                         <span className="cart-badge">{cartItems}</span>
                     </div>
                 </div>
             </div>
+            <SignupSigninModal
+                isOpen={isModalOpen}
+                closeModal={closeSignupSigninModal}
+            />
         </nav>
     );
 };
